@@ -1,0 +1,16 @@
+<template name="layout">
+  <div class="container">
+    <div class="todo header">
+      <div class="headline"><h5>Search past CS 61B materials</h5></div>
+      <div class="search-box">
+        <input type="search" class="search-field todo-search-field" placeholder="Starting typing...">
+        <span class="search-icon fui-search"></span>
+      </div>
+        <ul class="links">
+        {{#each links}}
+          {{> link}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

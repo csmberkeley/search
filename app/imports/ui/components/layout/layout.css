@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  margin-top: 74px;
+  max-width: 800px;
+  background: white;
+}
+.headline {
+  text-align: center;
+  color: #34495e;
+}
+.search-box{
+  background: #1abc9c;
+  background-size: 16px 16px;
+  border-radius: 6px 6px 0 0;
+  color: #34495e;
+  padding: 19px 25px 20px;
+}
+.search-none {
+  border-radius: 6px;
+}
+.search-field {
+  width: calc(100% - 20px);
+}
+.search-icon {
+  float: right;
+  clear: right;
+}
+.todo li.todo-done:after {
+  content: "\e638";
+}
