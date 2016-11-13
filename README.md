@@ -21,7 +21,8 @@ Meteor stuff in in `app/`, a MongoDB populator and some scrapers in `utils/`
 
 ## Misc.
 - [The Blaze docs are here now](http://blazejs.org/guide/introduction.html)
-- We are using [Flat UI](http://designmodo.github.io/Flat-UI/) for our front-end
+- We are using [Flat UI](http://designmodo.github.io/Flat-UI/) for our front-end (docs are [here](https://designmodo.github.io/Flat-UI/docs/components.html))
+
 
 
 
