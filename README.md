@@ -5,8 +5,11 @@ Meteor stuff in in `app/`, a MongoDB populator and some scrapers in `utils/`
 
 ## Setup
 1. Get [Meteor](https://www.meteor.com/install)
-2. Run `meteor npm install`
-3. Run `meteor`. You can keep this running as you make changes; Meteor automatically refreshes the web server.
+2. In `app/`:
+  - Run `meteor npm install`
+  - Run `meteor`. You can keep this running as you make changes; Meteor automatically refreshes the web server.
+3. In `utils/`:
+  - Run `python fill_db.py` while `meteor` is running. This will populate your local Mongo database with some previous semester links.
 
 ## File Structure
 - `imports/api` - Model layer for object CRUD
