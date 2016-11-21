@@ -78,7 +78,7 @@ def read_problems_csv():
       
       return [{'type': 'Problem',
                       'formatted_title': row[2],
-                      'title': row[2],
+                      'title': row[2].lower(),
                       'semester': 'all',
                       'url': row[0],
                       'tags': row[1].lower().split(';')} for row in reader]
