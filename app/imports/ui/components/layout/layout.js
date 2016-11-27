@@ -14,6 +14,15 @@ Template.layout.onCreated(function () {
   Meteor.subscribe('links');
 });
 
+Template.layout.onCreated(function () {
+  this.practice = new ReactiveVar(true);
+  this.labs = new ReactiveVar(true);
+  this.notes = new ReactiveVar(true);
+  this.slides = new ReactiveVar(true);
+  // this.searchBox = $('.search-box');
+  // Meteor.subscribe('links');
+});
+
 Template.layout.onRendered(function () {
   this.searchBox = $('.search-box');
   this.searchBox.addClass('search-none');
@@ -24,7 +33,21 @@ Template.layout.helpers({
     const instance = Template.instance();
     const currInput = instance.input.get();
     if (currInput !== undefined && currInput !== null && currInput.length > 0) {
-      let results = Links.find({title: {$regex: '.*' + currInput.toLowerCase() + '.*'}}); 
+      // console.log('hmm');
+      console.log(instance.practice.get());
+
+      var arr =  [];
+      if(instance.practice.get() == true) {
+        arr.push("Problem");
+      }
+      if (instance.labs.get() == true) {
+        arr.push("Lab")
+      }
+      // console.log(arr);
+      // TODO: ADD MORE HERE!!!!
+      let results = Links.find({title: {$regex: '.*' + currInput.toLowerCase() + '.*'},
+                                type: {$in: arr}});
+
       if (results.count() === 0) {
         instance.searchBox.addClass('search-none');
       } else {
@@ -44,4 +67,22 @@ Template.layout.events({
     event.preventDefault();
     instance.input.set(event.target.value);
   },
+});
+
+Template.layout.events({
+'change input'(event, instance) {
+
+  var x = event.target.value;
+  if (x == 'practice') {
+    instance.practice.set(event.target.checked);
+  }
+  else if (x == 'labs')
+  {
+    instance.labs.set(event.target.checked);
+  }
+  // Session.set("statevalue", x);
+  // console.log(x);
+  // TODO: ADD MORE HERE!!
+
+ }
 });
