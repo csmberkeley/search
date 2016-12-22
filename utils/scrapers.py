@@ -19,13 +19,13 @@ def search_su16():
     soup = BeautifulSoup(requests.get(url).text)
     raw_links = soup.find('table', {'id': 'calendar'}).find_all('a')
 
-    lecture_links = [{'type': 'Lecture',
+    lecture_links = [{'type': 'notes',
                       'formatted_title': tag.get_text(),
                       'title': tag.get_text().lower(),
                       'semester': 'su15',
                       'url': url + tag['href']}
                       for tag in raw_links if '/lectures' in tag['href']]
-    lab_links = [{'type': 'Lab',
+    lab_links = [{'type': 'lab',
                   'formatted_title': tag.get_text(),
                   'title': tag.get_text().lower(),
                   'semester': 'su15',
@@ -38,7 +38,7 @@ def search_sp14():
     url = 'https://www.cs.berkeley.edu/~jrs/61b/'
     soup = BeautifulSoup(requests.get(url).text)
     table = soup.find('table', {'border': 2, 'cellpadding': 2}).find_all('a')
-    lecture_links = [{'type': 'Lecture',
+    lecture_links = [{'type': 'notes',
                       'formatted_title': tag.get_text(),
                       'title': tag.get_text().lower(),
                       'semester': 'sp14',
@@ -52,13 +52,13 @@ def search_sp16():
     soup = BeautifulSoup(requests.get(url).text)
     raw_links = soup.find('table', {'id': 'calendar'}).find_all('a')
 
-    lecture_links = [{'type': 'Lecture',
+    lecture_links = [{'type': 'notes',
                       'formatted_title': tag.get_text(),
                       'title': tag.get_text().lower(),
                       'semester': 'sp16',
                       'url': url + tag['href']}
                       for tag in raw_links if 'youtube.com' in tag['href']]
-    lab_links = [{'type': 'Lab',
+    lab_links = [{'type': 'lab',
                   'formatted_title': tag.get_text(),
                   'title': tag.get_text().lower(),
                   'semester': 'sp16',
@@ -77,7 +77,7 @@ def import_from_csv():
         with open(csvs[0], 'r') as csvfile:
             reader = csv.reader(csvfile)
 
-            return [{'type': 'Problem',
+            return [{'type': 'practice',
                      'formatted_title': row[2],
                      'title': row[2].lower(),
                      'semester': 'all',

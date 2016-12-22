@@ -28,3 +28,10 @@
 .todo li.todo-done:after {
   content: "\e638";
 }
+.type-filters {
+  margin-left: 6px;
+}
+.type-filters .checkbox {
+  margin-right: 32px;
+  display: inline-block;
+}

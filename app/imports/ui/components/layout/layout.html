@@ -2,17 +2,25 @@
   <div class="container">
     <div class="todo header">
       <div class="headline"><h5>Search past CS 61B materials</h5></div>
-            <form>
-      <input type = "checkbox" id = "practice" name = "myForm" value = "practice" checked>Practice
-      <input type = "checkbox" id = "slides" name = "myForm" value = "slides" checked>Slides
-      <input type = "checkbox" id = "notes" name = "myForm" value = "notes" checked>Notes
-      <input type = "checkbox" id = "labs" name = "myForm" value = "labs" checked>Labs
 
-      <!-- <input type = "submit" value = "SUBMIT"> -->
-   </form>
       <div class="search-box">
         <input type="search" class="search-field todo-search-field" placeholder="Starting typing...">
         <span class="search-icon fui-search"></span>
+      </div>
+
+      <div class="type-filters">
+        <label class="checkbox">
+          <input type="checkbox" id="practice" value="practice" checked="checked">Practice
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="notes" value="notes" checked="checked">Notes
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="slides" value="slides" checked="checked">Slides
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="lab" value="lab" checked="checked">Lab
+        </label>
       </div>
       
         <ul class="links">
@@ -20,14 +28,6 @@
           {{> link}}
         {{/each}}
       </ul>
-
-
     </div>
   </div>
 </template>
-
-
-<!-- <template name = "myTemplate">
-   
-</template> -->
-

@@ -18,7 +18,7 @@ Meteor stuff in in `app/`, a MongoDB populator and some scrapers in `utils/`
     - Global events or helpers should go in `layout.js`
   - Controller logic + Blaze template should only go in its directory
   - Component-specific CSS should go in corresponding folder and be imported by corresponding `.js` file
-- `imports/ui/components/layouts/layout.routes.js` - Routes are here
+- `imports/ui/routes.js` - Routes are here
 - `server` - imports
 - [More notes from Meteor docs](https://guide.meteor.com/structure.html)
 
