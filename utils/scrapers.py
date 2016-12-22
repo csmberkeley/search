@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import csv
+import os
+import glob
 
 class Link:
     def __init__(self, type, title, semester, url):
@@ -11,7 +13,6 @@ class Link:
 
     def __repr__(self):
         return '<Link to {0} {1} titled "{2}" at {3}>'.format(self.semester, self.type, self.title, self.url[:10])
-
 
 def search_su16():
     url = 'http://www.cs61bl.org/su16/'
@@ -66,19 +67,22 @@ def search_sp16():
 
     # url_assignments = 'http://datastructur.es/sp16/assign.html'
     # soup_assignments = BeautifulSoup(requests.get(url_assignments).text)
-
     # guerrilla_table = soup.findAll("table", {"id": "guerrilla"})[0].find("table")
-
 
     return lecture_links + lab_links
 
-def read_problems_csv():
-    with open('practiceproblems.csv', 'r') as csvfile:
-      reader = csv.reader(csvfile)
-      
-      return [{'type': 'Problem',
-                      'formatted_title': row[2],
-                      'title': row[2],
-                      'semester': 'all',
-                      'url': row[0],
-                      'tags': row[1].lower().split(';')} for row in reader]
+def import_from_csv():
+    csvs = filter(os.path.isfile, glob.glob('./*.csv'))
+    if len(csvs) > 0:
+        with open(csvs[0], 'r') as csvfile:
+            reader = csv.reader(csvfile)
+
+            return [{'type': 'Problem',
+                     'formatted_title': row[2],
+                     'title': row[2].lower(),
+                     'semester': 'all',
+                     'url': row[0],
+                     'tags': row[1].lower().split(';')} for row in reader]
+    else:
+        return []
+
