@@ -33,9 +33,6 @@ Template.layout.helpers({
     const instance = Template.instance();
     const currInput = instance.input.get();
     if (currInput !== undefined && currInput !== null && currInput.length > 0) {
-      // console.log('hmm');
-      console.log(instance.practice.get());
-
       var arr =  [];
       if(instance.practice.get() == true) {
         arr.push("Problem");
@@ -43,10 +40,7 @@ Template.layout.helpers({
       if (instance.labs.get() == true) {
         arr.push("Lab")
       }
-      // console.log(arr);
-      // TODO: ADD MORE HERE!!!!
-      let results = Links.find({title: {$regex: '.*' + currInput.toLowerCase() + '.*'},
-                                type: {$in: arr}});
+      let results = Links.find({title: {$regex: '.*' + currInput.toLowerCase() + '.*'}});
 
       if (results.count() === 0) {
         instance.searchBox.addClass('search-none');
