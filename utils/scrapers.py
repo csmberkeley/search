@@ -77,12 +77,12 @@ def import_from_csv():
         with open(csvs[0], 'r') as csvfile:
             reader = csv.reader(csvfile)
 
-            return [{'type': 'practice',
+            return [{'type': row[3],
                      'formatted_title': row[2],
                      'title': row[2].lower(),
-                     'semester': 'all',
+                     'semester': '--',
                      'url': row[0],
-                     'tags': row[1].lower().split(';')} for row in reader]
+                     'topics': row[1].lower().split(';')} for row in reader]
     else:
         return []
 

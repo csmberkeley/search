@@ -50,15 +50,8 @@ Template.layout.helpers({
     if (currInput) {
       let results = Links.find(constructMongoQuery(currInput, instance));
 
-      if (results.count() === 0) {
-        instance.searchBox.addClass('search-none');
-      } else {
-        instance.searchBox.removeClass('search-none');
+      if (results.count() !== 0) {
         return results;
-      }
-    } else {
-      if (instance.searchBox) {
-        instance.searchBox.addClass('search-none');
       }
     }
   },

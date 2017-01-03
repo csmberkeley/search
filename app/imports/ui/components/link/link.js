@@ -13,3 +13,7 @@ Template.link.events({
     window.open(this.url, '_blank');
   }
 });
+
+Template.registerHelper('isType', (test, type) => {
+  return test === type;
+});

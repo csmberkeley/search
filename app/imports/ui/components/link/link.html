@@ -1,11 +1,24 @@
 <template name="link">
   <li class="link">
-    <div class="todo-icon">{{semester}}</div>
-    <div class="todo-content">
-      <h4 class="todo-name">
+    {{#if isType type 'practice'}}
+    <div class="theme-icon fui-new"></div>
+    {{/if}}
+    {{#if isType type 'notes'}}
+    <div class="theme-icon fui-list-bulleted"></div>
+    {{/if}}
+    {{#if isType type 'slides'}}
+    <div class="theme-icon fui-list-large-thumbnails"></div>
+    {{/if}}
+    {{#if isType type 'lab'}}
+    <div class="theme-icon fui-window"></div>
+    {{/if}}
+    <div class="theme-content">
+      <h4 class="theme-name">
         {{formatted_title}}
       </h4>
-      {{type}}
+      <span class="keyword">{{type}}</span> on 
+      <span class="keyword">{{topics}}</span> from 
+      <span class="keyword">{{semester}}</span>
     </div>
   </li>
 </template>

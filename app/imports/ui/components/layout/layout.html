@@ -1,25 +1,29 @@
 <template name="layout">
   <div class="container">
-    <div class="todo header">
+    <div class="theme header">
       <div class="headline"><h5>Search past CS 61B materials</h5></div>
 
       <div class="search-box">
-        <input type="search" class="search-field todo-search-field" placeholder="Starting typing...">
+        <input type="search" class="search-field theme-search-field" placeholder="Starting typing...">
         <span class="search-icon fui-search"></span>
       </div>
 
       <div class="type-filters">
         <label class="checkbox">
-          <input type="checkbox" id="practice" value="practice" checked="checked">Practice
+          <input type="checkbox" id="practice" value="practice" checked="checked">
+          Practice ( <span class="fui-new"></span> ) 
         </label>
         <label class="checkbox">
-          <input type="checkbox" id="notes" value="notes" checked="checked">Notes
+          <input type="checkbox" id="notes" value="notes" checked="checked">
+          Notes ( <span class="fui-list-bulleted"></span> ) 
         </label>
         <label class="checkbox">
-          <input type="checkbox" id="slides" value="slides" checked="checked">Slides
+          <input type="checkbox" id="slides" value="slides" checked="checked">
+          Slides ( <span class="fui-list-large-thumbnails"></span> ) 
         </label>
         <label class="checkbox">
-          <input type="checkbox" id="lab" value="lab" checked="checked">Lab
+          <input type="checkbox" id="lab" value="lab" checked="checked">
+          Lab ( <span class="fui-window"></span> ) 
         </label>
       </div>
       
