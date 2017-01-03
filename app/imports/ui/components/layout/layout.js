@@ -25,6 +25,12 @@ Template.layout.onRendered(function () {
   $(':checkbox').radiocheck();
 });
 
+/*
+  TODO: Topics have been added into database. Order results by weight system
+  
+  Title match: more weight
+  Reverse topic match: less weight
+*/
 function constructMongoQuery(currInput, instance) {
   const query = {};
   const types = [];

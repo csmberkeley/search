@@ -31,6 +31,4 @@ if __name__ == '__main__':
   print 'added %d links from sp14' % len(sp14)
   sp16 = scrapers.search_sp16()
   print 'added %d links from sp16' % len(sp16)
-  problems = scrapers.import_from_csv()
-  print 'added %d links from csv' % len(problems)
   links.insert_many(su16 + sp14 + sp16 + problems)
